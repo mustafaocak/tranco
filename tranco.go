@@ -27,8 +27,8 @@ type TrancoList struct {
 }
 
 type domain struct {
-	Rank int
-	Name string
+	rank int
+	name string
 }
 
 func (tl TrancoList) Top(num int) []domain {
@@ -124,7 +124,7 @@ func (t Tranco) List(date string) TrancoList {
 		rank, err := strconv.Atoi(line[0])
 		checkError("Error with converting rank to int!", err)
 
-		tl.Domains_list = append(tl.Domains_list, domain{Rank: rank, Name: line[1]})
+		tl.Domains_list = append(tl.Domains_list, domain{rank: rank, name: line[1]})
 		tl.Domains_map[line[1]] = rank
 	}
 	tl.Date = date
