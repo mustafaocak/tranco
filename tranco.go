@@ -124,7 +124,7 @@ func (t Tranco) List(date string) TrancoList {
 		rank, err := strconv.Atoi(line[0])
 		checkError("Error with converting rank to int!", err)
 
-		tl.Domains_list = append(tl.Domains_list, Domain{rank: rank, name: line[1]})
+		tl.Domains_list = append(tl.Domains_list, Domain{Rank: rank, Name: line[1]})
 		tl.Domains_map[line[1]] = rank
 	}
 	tl.Date = date
