@@ -22,7 +22,7 @@ type TrancoList struct {
 	Date         string
 	List_id      string
 	List_page    string
-	Domains_list []domain
+	Domains_list []Domain
 	Domains_map  map[string]int
 }
 
@@ -31,12 +31,12 @@ type Domain struct {
 	Name string
 }
 
-func (tl TrancoList) Top(num int) []domain {
+func (tl TrancoList) Top(num int) []Domain {
 	return tl.Domains_list[:num]
 
 }
-func (tl TrancoList) Rank(domain string) int {
-	rank, ok := tl.Domains_map[domain]
+func (tl TrancoList) Rank(domainname string) int {
+	rank, ok := tl.Domains_map[domainname]
 	if ok {
 		return rank
 	} else {
@@ -124,7 +124,7 @@ func (t Tranco) List(date string) TrancoList {
 		rank, err := strconv.Atoi(line[0])
 		checkError("Error with converting rank to int!", err)
 
-		tl.Domains_list = append(tl.Domains_list, domain{rank: rank, name: line[1]})
+		tl.Domains_list = append(tl.Domains_list, Domain{rank: rank, name: line[1]})
 		tl.Domains_map[line[1]] = rank
 	}
 	tl.Date = date
