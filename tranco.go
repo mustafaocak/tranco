@@ -26,9 +26,9 @@ type TrancoList struct {
 	Domains_map  map[string]int
 }
 
-type domain struct {
-	rank int
-	name string
+type Domain struct {
+	Rank int
+	Name string
 }
 
 func (tl TrancoList) Top(num int) []domain {
